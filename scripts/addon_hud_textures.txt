@@ -1,0 +1,30 @@
+""
+{
+	"TextureData"
+	{
+		"minimap_box_lvl_1"
+		{
+			"file"		"materials/vgui/hud/box_lvl_1.vmat"
+			"x"			"0"
+			"y"			"300"
+			"width"		"64"
+			"height"	"64"
+		}
+		"minimap_box_lvl_2"
+		{
+			"file"		"materials/vgui/hud/box_lvl_2.vmat"
+			"x"			"0"
+			"y"			"0"
+			"width"		"64"
+			"height"	"64"
+		}
+		"minimap_box_lvl_3"
+		{
+			"file"		"materials/vgui/hud/box_lvl_3.vmat"
+			"x"			"0"
+			"y"			"0"
+			"width"		"64"
+			"height"	"64"
+		}
+	}
+}

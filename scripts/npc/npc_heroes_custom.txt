@@ -1,0 +1,329 @@
+// Dota Heroes File
+// NOTE: This is not for creating new heroes, this is for taking a currently existing hero as a template and overriding
+// the specified key-value combinations.  Use override_hero <hero_to_override> for this.
+"DOTAHeroes"
+{
+	//==================================================================================
+	//坚盾
+	//==================================================================================
+	"npc_dota_hero_beastmaster"
+	{
+		"override_hero"				"npc_dota_hero_beastmaster"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_dragon_knight"
+	{
+		"override_hero"				"npc_dota_hero_dragon_knight"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_omniknight"
+	{
+		"override_hero"				"npc_dota_hero_omniknight"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_elder_titan"
+	{
+		"override_hero"				"npc_dota_hero_elder_titan"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_axe"
+	{
+		"override_hero"				"npc_dota_hero_axe"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	//==================================================================================
+	//利刃
+	//==================================================================================
+	"npc_dota_hero_legion_commander"
+	{
+		"override_hero"				"npc_dota_hero_legion_commander"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_juggernaut"
+	{
+		"override_hero"				"npc_dota_hero_juggernaut"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_troll_warlord"
+	{
+		"override_hero"				"npc_dota_hero_troll_warlord"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_antimage"
+	{
+		"override_hero"				"npc_dota_hero_antimage"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_terrorblade"
+	{
+		"override_hero"				"npc_dota_hero_terrorblade"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	//==================================================================================
+	//弓箭
+	//==================================================================================
+	"npc_dota_hero_templar_assassin"
+	{
+		"override_hero"				"npc_dota_hero_templar_assassin"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_windrunner"
+	{
+		"override_hero"				"npc_dota_hero_windrunner"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_drow_ranger"
+	{
+		"override_hero"				"npc_dota_hero_drow_ranger"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_queenofpain"
+	{
+		"override_hero"				"npc_dota_hero_queenofpain"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_clinkz"
+	{
+		"override_hero"				"npc_dota_hero_clinkz"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	//==================================================================================
+	//魔法
+	//==================================================================================
+	"npc_dota_hero_invoker"
+	{
+		"override_hero"				"npc_dota_hero_invoker"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+		"Ability7"					""
+		"Ability8"					""
+		"Ability9"					""
+		"Ability10"					""
+		"Ability11"					""
+		"Ability12"					""
+		"Ability13"					""
+		"Ability14"					""
+		"Ability15"					""
+		"Ability16"					""
+		"Ability17"					""
+		"Ability18"					""
+	}
+
+	"npc_dota_hero_storm_spirit"
+	{
+		"override_hero"				"npc_dota_hero_storm_spirit"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_crystal_maiden"
+	{
+		"override_hero"				"npc_dota_hero_crystal_maiden"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_dazzle"
+	{
+		"override_hero"				"npc_dota_hero_dazzle"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+
+	"npc_dota_hero_vengefulspirit"
+	{
+		"override_hero"				"npc_dota_hero_vengefulspirit"
+
+		//abilities
+		//------------------------------------------------------------------------------
+		"AbilityLayout"				"6"
+		"Ability1"					"empty_ability1"
+		"Ability2"					"empty_ability2"
+		"Ability3"					"empty_ability3"
+		"Ability4"					"empty_ability4"
+		"Ability5"					"empty_ability5"
+		"Ability6"					"empty_ability6"
+	}
+}

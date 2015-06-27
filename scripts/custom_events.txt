@@ -1,0 +1,11 @@
+"CustomEvents"
+{
+	// none : value is not networked
+	// string : a zero terminated string
+	// bool : unsigned int, 1 bit
+	// byte : unsigned int, 8 bit
+	// short : signed int, 16 bit
+	// long : signed int, 32 bit
+	// float : float, 32 bit
+	// uint64 : unsigned int 64 bit
+}

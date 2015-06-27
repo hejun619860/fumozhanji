@@ -1,0 +1,52 @@
+"addon"
+{
+	"PayAbilities_title"				"祈福"
+	"PayAbilities_note"					"花点钱祈福一个技能吧"
+	"PayAbilities_Button_1"				"防御技能"
+	"PayAbilities_Button_2"				"攻击技能"
+	"PayAbilities_Button_3"				"光环技能"
+	"PayAbilities_Button_4"				"恢复技能"
+	"PayAbilities_Button_5"				"控制技能"
+	"PayAbilities_close"				"取消"
+	"ButtonPayAbilities"				"祈福"
+	"PayAbilities_defense"				"200"
+	"PayAbilities_attack"				"200"
+	"PayAbilities_aura"					"1000"
+	"PayAbilities_heal"					"200"
+	"PayAbilities_support"				"200"
+
+	"ChangeAbilities_title"				"升级和删除技能"
+	"Ability_null"						"空"
+
+	"Buttons_ButtonChange"				"变更"
+	"Button_delete"						"删除"
+	"Button_lvlup"						"升级"
+	"Button_cancel"						"取消"
+
+	"DifficultyTitle"					"请选择难度"
+	"DifficultyEasy"					"菜鸟入门(熟悉地图)"
+	"DifficultyNormal"					"普通难度(更高挑战)"
+	"DifficultyHard"					"中级难度(路人局的极限)"
+	"DifficultyCrazy"					"高级难度(专业战队适用)"
+	"DifficultyHell"					"地狱难度(语音适用)"
+
+	"InfoAbilityPoint"					"技能点:"
+
+	//============================================================================================
+	//技能
+	//============================================================================================
+	"DOTA_Tooltip_ability_empty_ability1"					"空技能"
+	"DOTA_Tooltip_ability_empty_ability2"					"空技能"
+	"DOTA_Tooltip_ability_empty_ability3"					"空技能"
+	"DOTA_Tooltip_ability_empty_ability4"					"空技能"
+	"DOTA_Tooltip_ability_empty_ability5"					"空技能"
+	"DOTA_Tooltip_ability_empty_ability6"					"空技能"
+
+	"DOTA_Tooltip_ability_JianCiWaiKe"						"尖刺外壳"
+	"DOTA_Tooltip_ability_TianShenXiaFan"					"天神下凡"
+	"DOTA_Tooltip_ability_ShanBi"							"闪避"
+	"DOTA_Tooltip_ability_YingHuaPiFu"						"硬化皮肤"
+	"DOTA_Tooltip_ability_MoFaHuDun"						"魔法护盾"
+	"DOTA_Tooltip_ability_ShuangDongHuJia"					"霜冻护甲"
+}
+

@@ -1,0 +1,35 @@
+//
+// <key>	<value>
+// Hero		currently on/off, will be # of instances (-1 = infinite)
+//
+
+"CustomHeroList"
+{
+	//坚盾
+	"npc_dota_hero_beastmaster"			"1"
+	"npc_dota_hero_dragon_knight"		"1"
+	"npc_dota_hero_omniknight"			"1"
+	"npc_dota_hero_elder_titan"			"1"
+	"npc_dota_hero_axe"					"1"
+
+	//利刃
+	"npc_dota_hero_legion_commander"	"1"
+	"npc_dota_hero_juggernaut"			"1"
+	"npc_dota_hero_troll_warlord"		"1"
+	"npc_dota_hero_antimage"			"1"
+	"npc_dota_hero_terrorblade"			"1"
+
+	//弓箭
+	"npc_dota_hero_templar_assassin"	"1"
+	"npc_dota_hero_windrunner"			"1"
+	"npc_dota_hero_drow_ranger"			"1"
+	"npc_dota_hero_queenofpain"			"1"
+	"npc_dota_hero_clinkz"				"1"
+
+	//魔法
+	"npc_dota_hero_invoker"				"1"
+	"npc_dota_hero_storm_spirit"		"1"
+	"npc_dota_hero_crystal_maiden"		"1"
+	"npc_dota_hero_dazzle"				"1"
+	"npc_dota_hero_vengefulspirit"		"1"
+}

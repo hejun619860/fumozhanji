@@ -1,0 +1,69 @@
+// Units File
+"DOTAUnits"
+{
+	"Version"	"1"
+	
+	//=================================================================================	
+	// Box
+	//=================================================================================
+	"npc_box_1"	
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/buildings/building_plain_reference.vmdl"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BountyXP"					"0"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"StatusHealth"				"5000"
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"VisionDaytimeRange"		"300"
+		"VisionNighttimeRange"		"300"
+		"MinimapIcon"				"minimap_box_lvl_1"
+		"MinimapIconSize"			"500"
+		"MinimapDisableTint"		"1"
+	}
+	"npc_box_2"	
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/buildings/building_plain_reference.vmdl"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BountyXP"					"0"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"StatusHealth"				"5000"
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"VisionDaytimeRange"		"300"
+		"VisionNighttimeRange"		"300"
+		"MinimapIcon"				"minimap_box_lvl_2"
+		"MinimapIconSize"			"500"
+		"MinimapDisableTint"		"1"
+	}
+	"npc_box_3"	
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/buildings/building_plain_reference.vmdl"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BountyXP"					"0"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"StatusHealth"				"5000"
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"VisionDaytimeRange"		"300"
+		"VisionNighttimeRange"		"300"
+		"MinimapIcon"				"minimap_box_lvl_3"
+		"MinimapIconSize"			"500"
+		"MinimapDisableTint"		"1"
+	}
+	"npc_box_4"	
+	{
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/buildings/building_plain_reference.vmdl"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BountyXP"					"0"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"StatusHealth"				"5000"
+		"TeamName"					"DOTA_TEAM_BADGUYS"
+		"VisionDaytimeRange"		"300"
+		"VisionNighttimeRange"		"300"
+		"MinimapIcon"				"minimap_box_lvl_1"
+		"MinimapIconSize"			"500"
+		"MinimapDisableTint"		"1"
+	}
+}

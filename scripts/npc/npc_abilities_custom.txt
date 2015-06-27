@@ -1,0 +1,470 @@
+// Dota Heroes File
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	//空技能
+	"empty_ability1"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"wisp_empty1"
+		"MaxLevel" 						"0"
+	}
+
+	"empty_ability2"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"wisp_empty1"
+		"MaxLevel" 						"0"
+	}
+
+	"empty_ability3"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"wisp_empty1"
+		"MaxLevel" 						"0"
+	}
+
+	"empty_ability4"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"wisp_empty1"
+		"MaxLevel" 						"0"
+	}
+
+	"empty_ability5"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"wisp_empty1"
+		"MaxLevel" 						"0"
+	}
+
+	"empty_ability6"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"wisp_empty1"
+		"MaxLevel" 						"0"
+	}
+
+	//防御技能
+	//---------------------------------------------------------------------------------------
+	"JianCiWaiKe"	//尖刺外壳
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"nyx_assassin_spiked_carapace"
+		"MaxLevel" 						"7"
+
+		"Modifiers"
+		{
+			"modifier_JianCiWaiKe"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"EffectName"			"particles/items_fx/blademail.vpcf"
+				"EffectAttachType"		"follow_chest"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
+				}
+
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/amhc_library/KV.lua"
+						"Function"		"DamageTarget"
+						"Damage"		"%attack_damage"
+						"DamageType"	"DAMAGE_TYPE_PHYSICAL"
+						"Scale"			"%scale"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"	//护甲
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor"				"2 4 6 8 10 12 14"
+			}
+			"02"	//反弹攻击伤害-伪
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rebound_damage"	"5 8 11 14 17 20 23"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"percent"			"0.05 0.08 0.11 0.14 0.17 0.20 0.23"
+			}
+		}
+	}
+
+	"TianShenXiaFan"	//天神下凡
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"omniknight_repel"
+		"MaxLevel" 						"7"
+
+		"AbilityCooldown"				"50"
+		"AbilityManaCost"				"60"
+
+		"CustomPrecache"
+		{
+			"particle1"			"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_TianShenXiaFan"
+				"Target" 		"CASTER"
+			}
+
+			"FireSound"
+			{
+				"EffectName"	"Hero_Brewmaster.PrimalSplit.Spawn"
+				"Target" 		"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_TianShenXiaFan"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Duration"			"%duration"
+				"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+				"EffectAttachType"	"follow_chest"
+		
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" 		"%preattack"
+				    "MODIFIER_PROPERTY_HEALTH_BONUS" 				"%heal" 
+				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
+				    "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%incoming_damage"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/amhc_library/KV.lua"
+						"Function"		"AddModelScale"
+						"Scale"			"1.5"
+						"Duration"		"%duration"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"	//持续时间
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"30"
+			}
+			"02"	//附加攻击力
+			{
+				"var_type"			"FIELD_INTEGER"
+				"preattack"			"10 20 30 40 50 60 70"
+			}
+			"03"	//生命值
+			{
+				"var_type"			"FIELD_INTEGER"
+				"heal"				"300 400 500 600 700 800 900"
+			}
+			"04"	//护甲
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor"				"2 4 6 8 10 12 14"
+			}
+			"05"	//受到任何伤害
+			{
+				"var_type"			"FIELD_INTEGER"
+				"incoming_damage"	"-50"
+			}
+		}
+	}
+
+	"ShanBi"	//闪避
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"disruptor_glimpse"
+		"MaxLevel" 						"7"
+
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"30"
+
+		"CustomPrecache"
+		{
+			"particle1"			"particles/econ/events/nexon_hero_compendium_2014/blink_dagger_start_nexon_hero_cp_2014.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_ShanBi"
+				"Target" 		"CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_QueenOfPain.Blink_in"
+				"Target" 		"CASTER"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_ShanBi"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Duration"			"%duration"
+				"EffectName"		"particles/econ/events/nexon_hero_compendium_2014/blink_dagger_start_nexon_hero_cp_2014.vpcf"
+				"EffectAttachType"	"follow_chest"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT" 			"%evasion"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
+				}
+
+				"OnAttacked"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_ShanBi"
+						"Target" 		"CASTER"
+					}
+				}
+
+				"OnTakeDamage"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_ShanBi"
+						"Target" 		"CASTER"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"	//闪避
+			{
+				"var_type"			"FIELD_INTEGER"
+				"evasion"			"75"
+			}
+			"02"	//持续时间
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"5 7 9 11 13 15 17"
+			}
+		}
+	}
+
+	"YingHuaPiFu"	//硬化皮肤
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"tiny_craggy_exterior"
+		"MaxLevel" 						"7"
+
+		"Modifiers"
+		{
+			"modifier_YingHuaPiFu"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+		
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE" "%incoming_damage"
+				}
+
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/Abilities/DefenseAbilities.lua"
+						"Function"		"YingHuaPiFu"
+						"AttackCount"	"%attack_count"
+						"ReboundNum"	"%rebound_num"
+						"Damage"		"%attack_damage"
+						"DamageType"	"DAMAGE_TYPE_PHYSICAL"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"	//物理伤害
+			{
+				"var_type"			"FIELD_INTEGER"
+				"incoming_damage"	"-5 -8 -11 -14 -17 -20 -23"
+			}
+			"02"	//攻击次数
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_count"		"10 9 8 7 6 5 4"
+			}
+			"03"	//反弹倍数
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rebound_num"		"6 7 8 9 10 11 12"
+			}
+		}
+	}
+
+	"MoFaHuDun"	//魔法护盾
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"antimage_spell_shield"
+		"MaxLevel" 						"7"
+
+		"Modifiers"
+		{
+			"modifier_MoFaHuDun"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+		
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magical"
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"	//魔抗
+			{
+				"var_type"			"FIELD_INTEGER"
+				"magical"			"3 5 7 9 11 13 15"
+			}
+		}
+	}
+
+	"ShuangDongHuJia"	//霜冻护甲
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"lich_frost_armor"
+		"MaxLevel" 						"7"
+
+		"CustomPrecache"
+		{
+			"particle1"				"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+		}
+
+		"Modifiers"
+		{
+			"modifier_ShuangDongHuJia"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/Abilities/DefenseAbilities.lua"
+						"Function"		"ShuangDongHuJia"
+						"MaxCount"		"%max_count"
+					}
+				}
+			}
+
+			"modifier_ShuangDongHuJia_effect"
+			{
+				"Duration"				"%duration"
+				"IsDebuff"				"1"
+				"StatusEffectName"		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"	"10"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_speed"
+				}
+			}
+
+			"modifier_ShuangDongHuJia_frozen"
+			{
+				"IsDebuff"			"1"
+				"Duration"			"%frozen_duration"
+				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"follow_chest"
+
+				"States"
+				{
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"hero_Crystal.frostbite"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"	//攻击速度
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed"		"-2 -2 -3 -3 -4 -4 -5"
+			}
+			"02"	//移动速度
+			{
+				"var_type"			"FIELD_INTEGER"
+				"move_speed"		"-3 -3 -4 -4 -5 -5 -7"
+			}
+			"03"	//持续时间
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"18"
+			}
+			"04"	//最大层数
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_count"			"20 19 18 17 16 15 14"
+			}
+			"05"	//冰冻时间
+			{
+				"var_type"			"FIELD_INTEGER"
+				"frozen_duration"	"2"
+			}
+		}
+	}
+}
