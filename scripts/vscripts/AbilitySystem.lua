@@ -1,15 +1,74 @@
 
 if AbilitySystem == nil then
 	AbilitySystem = class({})
+	AbilitySystem.AbilityCount={}
+	AbilitySystem.Hero={
+		--坚盾
+		defense={
+			npc_dota_hero_beastmaster			=true,
+			npc_dota_hero_dragon_knight			=true,
+			npc_dota_hero_omniknight			=true,
+			npc_dota_hero_elder_titan			=true,
+			npc_dota_hero_axe					=true,
+		},
+		
+		--利刃
+		attack={
+			npc_dota_hero_legion_commander		=true,
+			npc_dota_hero_juggernaut			=true,
+			npc_dota_hero_troll_warlord			=true,
+			npc_dota_hero_antimage				=true,
+			npc_dota_hero_terrorblade			=true,
+		},
+		
+		--弓箭
+		attack_range={
+			npc_dota_hero_templar_assassin		=true,
+			npc_dota_hero_windrunner			=true,
+			npc_dota_hero_drow_ranger			=true,
+			npc_dota_hero_queenofpain			=true,
+			npc_dota_hero_clinkz				=true,
+		},
+		
+		--魔法
+		magician={
+			npc_dota_hero_invoker				=true,
+			npc_dota_hero_storm_spirit			=true,
+			npc_dota_hero_crystal_maiden		=true,
+			npc_dota_hero_dazzle				=true,
+			npc_dota_hero_vengefulspirit		=true,
+		},
+			
+	}
 end
 
+---------------------------------------------------------------------------------------------
+--技能数量
+function AbilitySystem.AbilityCount:Init( hero )
+	AbilitySystem.AbilityCount[hero:GetEntityIndex()]=0
+end
+
+function AbilitySystem.AbilityCount:Get( hero )
+	return AbilitySystem.AbilityCount[hero:GetEntityIndex()]
+end
+
+function AbilitySystem.AbilityCount:Add( hero )
+	AbilitySystem.AbilityCount[hero:GetEntityIndex()] = AbilitySystem.AbilityCount[hero:GetEntityIndex()] + 1
+end
+
+function AbilitySystem.AbilityCount:Low( hero )
+	AbilitySystem.AbilityCount[hero:GetEntityIndex()] = AbilitySystem.AbilityCount[hero:GetEntityIndex()] - 1
+end
+
+---------------------------------------------------------------------------------------------
+--添加技能
 function AbilitySystem:AddAbility( hero,abilityName,gold )
 
-	if hero._AbilitySystem_AbilityCount == nil then
-		hero._AbilitySystem_AbilityCount = 0
+	if AbilitySystem.AbilityCount:Get( hero ) == nil then
+		return
 	end
 
-	if hero._AbilitySystem_AbilityCount >= 6 then
+	if AbilitySystem.AbilityCount:Get( hero ) >= 6 then
 		CustomGameEventManager:Send_ServerToPlayer( hero:GetPlayerOwner(), "MessageShow", {msg="#AbilitySystem_PayFail_Max"} )
 		return
 	end
@@ -25,7 +84,7 @@ function AbilitySystem:AddAbility( hero,abilityName,gold )
 			if ability then
 				hero:RemoveAbility(name)
 				hero:AddAbility(abilityName)
-				hero._AbilitySystem_AbilityCount = hero._AbilitySystem_AbilityCount + 1
+				AbilitySystem.AbilityCount:Add( hero )
 
 				local a = hero:FindAbilityByName(abilityName)
 				if a then
@@ -45,6 +104,7 @@ function AbilitySystem:AddAbility( hero,abilityName,gold )
 	end
 end
 
+--删除技能
 function AbilitySystem:RemoveAbility( playerId,abilityIndex )
 	local player = PlayerResource:GetPlayer(playerId)
 
@@ -58,11 +118,11 @@ function AbilitySystem:RemoveAbility( playerId,abilityIndex )
 		return
 	end
 
-	if hero._AbilitySystem_AbilityCount == nil then
-		hero._AbilitySystem_AbilityCount = 0
+	if AbilitySystem.AbilityCount:Get( hero ) == nil then
+		return
 	end
 
-	if hero._AbilitySystem_AbilityCount <=0 then
+	if AbilitySystem.AbilityCount:Get( hero ) <=0 then
 		return
 	end
 
@@ -73,9 +133,13 @@ function AbilitySystem:RemoveAbility( playerId,abilityIndex )
 		return
 	end
 
+	for k,v in pairs(GameRules.AbilityModifierNote[abilityName]) do
+		hero:RemoveModifierByName(v)
+	end
+
 	hero:RemoveAbility(abilityName)
 	hero:AddAbility("empty_ability"..tostring(abilityIndex+1))
-	hero._AbilitySystem_AbilityCount = hero._AbilitySystem_AbilityCount - 1
+	AbilitySystem.AbilityCount:Low( hero )
 
 	local a = hero:FindAbilityByName("empty_ability"..tostring(abilityIndex+1))
 	if a then
@@ -103,6 +167,11 @@ function AbilitySystem:AddAbilityForDefense( player )
 	local hero = player:GetAssignedHero()
 
 	if AMHC:IsAlive(hero) == nil then
+		return
+	end
+
+	if not AbilitySystem.Hero.defense[hero:GetUnitName()] then
+		CustomGameEventManager:Send_ServerToPlayer( player, "MessageShow", {msg="#AbilitySystem_PayFail_defense"} )
 		return
 	end
 

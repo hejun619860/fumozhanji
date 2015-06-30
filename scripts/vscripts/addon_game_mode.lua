@@ -20,6 +20,7 @@ function Precache( context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_chen.vsndevts", context )
 
+	GameRules.AbilityModifierNote = {}
 	local kv = LoadKeyValues("scripts/npc/npc_abilities_custom.txt")
 	for k,v in pairs(kv) do
 		if type(v) == "table" then
@@ -31,6 +32,12 @@ function Precache( context )
 					elseif string.find(key,"particle_folder")>0 then
 						PrecacheResource( "particle_folder", value, context )
 					end
+				end
+			end
+			if v.Modifiers then
+				GameRules.AbilityModifierNote[k]={}
+				for key,value in pairs(v.Modifiers) do
+					table.insert(GameRules.AbilityModifierNote[k],key)
 				end
 			end
 		end
@@ -48,12 +55,17 @@ function CFuMoZhanJi:InitGameMode()
 	--require
 	require("event")
 	require("constant")
+	require("AbilityPoint")
 	require("AbilitySystem")
 	require("amhc_library/amhc")
 
 	--init
 	AMHCInit()
 	Event:Init()
+
+	--设置玩家
+	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 8 )
+	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
 
 	--隐藏dota2的一些UI
 	HideGameHud()
@@ -72,7 +84,6 @@ function CFuMoZhanJi:InitGameMode()
   	
   	-- 设定每秒工资数
   	GameRules:SetGoldPerTick(0)
-  	GameRules:SetGoldTickTime(3600)
 
   	-- 隐藏击杀信息
   	GameRules:SetHideKillMessageHeaders(true)
@@ -82,6 +93,9 @@ function CFuMoZhanJi:InitGameMode()
 
   	--设置树木重生时间
   	GameRules:SetTreeRegrowTime( 10.0 )
+
+  	--禁止重生
+  	GameRules:SetHeroRespawnEnabled(false)
 
   	--不允许买活
   	GameRules:GetGameModeEntity():SetBuybackEnabled(false)
