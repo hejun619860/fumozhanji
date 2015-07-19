@@ -12,8 +12,16 @@ function Precache( context )
 			PrecacheResource( "particle", "*.vpcf", context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
+	
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts", context )
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context )
+	
+	PrecacheResource( "model", "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl", context )
 
+	PrecacheResource( "particle_folder", "particles/custom", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_chen/chen_holy_persuasion_a.vpcf", context )
+
 
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_queenofpain.vsndevts", context )
@@ -27,9 +35,9 @@ function Precache( context )
 			if v.CustomPrecache then
 				for key,value in pairs(v.CustomPrecache) do
 
-					if string.find(key,"particle")>0 then
+					if string.find(key,"particle")~=nil then
 						PrecacheResource( "particle", value, context )
-					elseif string.find(key,"particle_folder")>0 then
+					elseif string.find(key,"particle_folder")~=nil then
 						PrecacheResource( "particle_folder", value, context )
 					end
 				end
@@ -66,9 +74,6 @@ function CFuMoZhanJi:InitGameMode()
 	--设置玩家
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 8 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 0 )
-
-	--隐藏dota2的一些UI
-	HideGameHud()
 	
 	--设置游戏准备时间
 	GameRules:SetPreGameTime( 10.0)
@@ -110,13 +115,4 @@ function CFuMoZhanJi:InitGameMode()
 	end
 	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(MaxLevel)
 	GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(XpTable)
-end
-
-function HideGameHud( )
-	local mode = GameRules:GetGameModeEntity()
-	mode:SetHUDVisible(DOTA_HUD_VISIBILITY_TOP_HEROES, false)
-	mode:SetHUDVisible(DOTA_HUD_VISIBILITY_INVENTORY_SHOP, false)
-
-	Convars:SetInt("dota_render_crop_height", 0)
-	Convars:SetInt("dota_render_y_inset", 0)
 end

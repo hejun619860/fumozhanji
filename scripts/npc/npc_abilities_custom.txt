@@ -467,4 +467,357 @@
 			}
 		}
 	}
+
+	//攻击技能 - 近战
+	//---------------------------------------------------------------------------------------
+	"DaoZhenXuanFeng"	//刀阵旋风
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"bounty_hunter_shuriken_toss"
+		"MaxLevel" 						"7"
+
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"75"
+
+		"CustomPrecache"
+		{
+			"particle1"				"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"AttachEffect"
+			{
+				"EffectName"        "particles/custom/abilities/dao_zhen_xuan_feng.vpcf"
+				"EffectAttachType"  "follow_chest"
+				"Target"            "CASTER"
+			}
+			"Damage"
+			{
+				"Target"
+				{
+		            "Types"     	"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		            "Teams"     	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		            "Flags"     	"DOTA_UNIT_TARGET_FLAG_NONE"
+		            "Center"    	"CASTER"
+		            "Radius"    	"%radius"
+		        }
+				"Type"				"DAMAGE_TYPE_PHYSICAL"
+				"Damage"			"%damage"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Silencer.GlaivesOfWisdom"
+				"Target" 		"CASTER"
+			}
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Types"     	"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		            "Teams"     	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		            "Flags"     	"DOTA_UNIT_TARGET_FLAG_NONE"
+		            "Center"    	"CASTER"
+		            "Radius"    	"%radius"
+				}
+				"Action"
+				{
+					"Random"
+					{
+						"Chance"			"%chance"
+						"OnSuccess"
+						{
+							"ApplyModifier"
+							{
+								"ModifierName"	"modifier_DaoZhenXuanFeng"
+								"Target" 		"TARGET"
+								"Duration"		"%duration"
+							}
+						}
+					}
+				}
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_DaoZhenXuanFeng"
+			{
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+		
+				"EffectName"		"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+				"EffectAttachType"	"follow_chest"
+		
+				"ThinkInterval"  	"%interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/amhc_library/KV.lua"
+						"Function"		"DamageTarget"
+						"Damage"		"max_health"
+						"DamageType"	"DAMAGE_TYPE_PHYSICAL"
+						"Scale"			"%scale"
+						"Show"			"1"
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"	//伤害
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"100 200 300 400 500 600 700"
+			}
+			"02"	//概率
+			{
+				"var_type"			"FIELD_INTEGER"
+				"chance"			"5"
+			}
+			"03"	//作用范围
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"300"
+			}
+			"04"	//流血间隔
+			{
+				"var_type"			"FIELD_FLOAT"
+				"interval"			"0.5"
+			}
+			"05"	//流血持续时间
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"10"
+			}
+			"06"	//流血损失生命值%
+			{
+				"var_type"			"FIELD_FLOAT"
+				"percent"			"1"
+			}
+			"07"	//流血损失生命值%
+			{
+				"var_type"			"FIELD_FLOAT"
+				"scale"				"0.01"
+			}
+		}
+	}
+
+	"ZhanZhengJianTa"	//战争践踏
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"centaur_hoof_stomp"
+		"MaxLevel" 						"7"
+
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"75"
+
+		"CustomPrecache"
+		{
+			"particle1"				"particles/units/heroes/hero_centaur/centaur_warstomp.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"AttachEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_centaur/centaur_warstomp.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
+			"Damage"
+			{
+				"Target"
+				{
+		            "Types"     	"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		            "Teams"     	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		            "Flags"     	"DOTA_UNIT_TARGET_FLAG_NONE"
+		            "Center"    	"CASTER"
+		            "Radius"    	"%radius"
+		        }
+				"Type"				"DAMAGE_TYPE_PHYSICAL"
+				"Damage"			"%damage"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Centaur.HoofStomp"
+				"Target" 		"CASTER"
+			}
+			"Stun"
+			{
+				"Duration"   		"%duration"
+				"Target"
+				{
+		            "Types"     	"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		            "Teams"     	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		            "Flags"     	"DOTA_UNIT_TARGET_FLAG_NONE"
+		            "Center"    	"CASTER"
+		            "Radius"    	"%radius"
+		        }
+			}
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Types"     	"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		            "Teams"     	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		            "Flags"     	"DOTA_UNIT_TARGET_FLAG_NONE"
+		            "Center"    	"CASTER"
+		            "Radius"    	"%radius"
+				}
+				"Action"
+				{
+					"Random"
+					{
+						"Chance"			"%chance"
+						"OnSuccess"
+						{
+							"Damage"
+							{
+								"Target"		"TARGET"
+								"Type"			"DAMAGE_TYPE_PHYSICAL"
+								"MinDamage"		"%damage_min"
+								"MaxDamage"		"%damage_max"
+							}
+						}
+					}
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"	//伤害
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"100 200 300 400 500 600 700"
+			}
+			"02"	//概率
+			{
+				"var_type"			"FIELD_FLOAT"
+				"chance"			"5"
+			}
+			"03"	//作用范围
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"300"
+			}
+			"04"	//眩晕时间
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"3"
+			}
+			"05"	//最小伤害
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_min"		"80"
+			}
+			"06"	//最大伤害
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_max"		"175"
+			}
+		}
+	}
+
+	"ShaChen"	//沙尘
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"			"magnataur_shockwave_alt"
+		"MaxLevel" 						"7"
+
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"400"
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"75"
+
+		"OnSpellStart"
+		{
+			"LinearProjectile"
+            {
+                "EffectName"        "particles/custom/abilities/shachen.vpcf"
+                "MoveSpeed"         "1000"
+                "StartRadius"       "0"
+                "EndRadius"         "300"
+                "FixedDistance"     "400"
+                "TargetTeams"       "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "TargetTypes"       "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+                "TargetFlags"       "DOTA_UNIT_TARGET_FLAG_NONE"
+                "HasFrontalCone"    "0"
+                "ProvidesVision"    "1"
+                "VisionRadius"      "300"
+            }
+            "FireSound"
+            {
+            	"EffectName"		"Ability.SandKing_SandStorm.start"
+            	"Target" 			"CASTER"
+            }
+		}
+
+		"OnProjectileHitUnit"
+        {
+            "DeleteOnHit"               "0"
+            "Damage"
+            {
+            	"Target"			"TARGET"
+            	"Type"				"DAMAGE_TYPE_PHYSICAL"
+            	"Damage"			"%damage"
+            }
+            "Random"
+            {
+            	"Chance"			"%chance"
+            	"OnSuccess"
+            	{
+            		"ApplyModifier"
+            		{
+            			"ModifierName"	"modifier_ShaChen"
+            			"Target" 		"TARGET"
+            			"Duration"		"%duration"
+            		}
+            	}
+            }
+        }
+
+        "Modifiers"
+        {
+        	"modifier_ShaChen"
+        	{
+        		"IsHidden"			"1"
+        		"IsDebuff"			"1"
+        
+        		"States"
+        		{
+        			"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+        		}
+        	}
+        }
+
+        "AbilitySpecial"
+        {
+        	"01"	//伤害
+        	{
+        		"var_type"			"FIELD_INTEGER"
+        		"damage"			"100 200 300 400 500 600 700"
+        	}
+        	"02"	//缴械概率
+        	{
+        		"var_type"			"FIELD_INTEGER"
+        		"chance"			"5"
+        	}
+        	"03"	//缴械持续时间
+        	{
+        		"var_type"			"FIELD_FLOAT"
+        		"duration"			"3.0"
+        	}
+        }
+	}
+
+	//攻击技能 - 远程
+	//---------------------------------------------------------------------------------------
 }
